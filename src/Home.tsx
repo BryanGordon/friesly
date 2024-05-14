@@ -61,6 +61,13 @@ export function Home () {
               </TableRow>
             </TableHeader>
             <TableBody>
+
+              <TableRow>
+                <TableCell className='font-medium text-center'>Alitas BBQ</TableCell>
+                <TableCell className='font-medium text-center'>16 min</TableCell>
+                <TableCell className='font-medium text-center'>350</TableCell>
+              </TableRow>
+
               <TableRow>
                 <TableCell className='font-medium text-center'>Lasaña (Maheso)</TableCell>
                 <TableCell className='font-medium text-center'>12 min</TableCell>
@@ -69,7 +76,7 @@ export function Home () {
 
               <TableRow>
                 <TableCell className='font-medium text-center'>Lasaña (Plumrose)</TableCell>
-                <TableCell className='font-medium text-center'>17 min</TableCell>
+                <TableCell className='font-medium text-center'>20 min</TableCell>
                 <TableCell className='font-medium text-center'>380</TableCell>
               </TableRow>
 
