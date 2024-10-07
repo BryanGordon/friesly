@@ -91,6 +91,13 @@ export function Home () {
                 <TableCell className='font-medium text-center'>17 min</TableCell>
                 <TableCell className='font-medium text-center'>395</TableCell>
               </TableRow>
+
+              <TableRow>
+                <TableCell className='font-medium text-center'>Papas fritas (Bolsa Azul)</TableCell>
+                <TableCell className='font-medium text-center'>15 min</TableCell>
+                <TableCell className='font-medium text-center'>390</TableCell>
+              </TableRow>
+
             </TableBody>
             <TableCaption>Productos de la freidora de aire</TableCaption>
           </Table>
