@@ -5,11 +5,11 @@ import { Table, TableCaption, TableBody, TableCell, TableHead, TableHeader, Tabl
 import { useState } from 'react'
 
 export function Home () {
-  const [degrees, setDegrees] = useState<number | null>(0)
+  const [degrees, setDegrees] = useState<number>(0)
   const [result, setResult] = useState(0)
 
-  const convertDegrees = (degrees: number | null) => {
-    if (degrees === null) {
+  const convertDegrees = (degrees: number) => {
+    if (!degrees) {
       window.alert('Error al calcular.')
     } else {
       let arrValue: string[] = ['']
