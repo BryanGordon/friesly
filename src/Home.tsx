@@ -1,79 +1,56 @@
+import { ColumNames } from './components/ColumNames'
+import { DataRow } from './components/DataRow'
 import { Button } from './components/ui/button'
 import { Input } from './components/ui/input'
-import { Table, TableCaption, TableBody, TableCell, TableHead, TableHeader, TableRow } from './components/ui/table'
+import { Table, TableCaption, TableBody, TableHeader } from './components/ui/table'
 
+import { ConvertDegrees } from './lib/convertDegrees'
 import { useState } from 'react'
 
 export function Home () {
   const [degrees, setDegrees] = useState<number>(0)
-  const [result, setResult] = useState(0)
+  const [result, setResult] = useState<number | undefined>(0)
 
-  setResult(0/*Colocar funcion*/)
-
- /* const convertDegrees = (degrees: number) => {
-    
-  }*/
+const getResult = () => {
+  setResult(ConvertDegrees(degrees))
+}
 
   return (
     <main>
       <h1>FRIESLY</h1>
       <section>
+
         <div className='input-container'>
           <label>Ingrese la temperatura en °C</label>
           <Input type='number' onChange={(event) => setDegrees((event.target as HTMLInputElement).valueAsNumber)} />
-          <Button onClick={() => convertDegrees(degrees)}>Calcular</Button>
+          <Button onClick={() => getResult()}>Calcular</Button>
         </div>
+
         <div className='results'>
           <span>La temperatura es: <span className='font-bold'>{result}</span></span>
         </div>
+
       </section>
+      
       <section>
         <div className='data-container'>
           <Table>
             <TableHeader>
-              <TableRow>
-                <TableHead className='font-bold text-black text-center font-high'>Producto</TableHead>
-                <TableHead className='font-bold text-black text-center font high'>Tiempo</TableHead>
-                <TableHead className='font-bold text-black text-center font-high'>Temperatura</TableHead>
-              </TableRow>
+              <ColumNames column1='Producto' column2='Tiempo' column3='Temperatura'/>
             </TableHeader>
             <TableBody>
 
-              <TableRow>
-                <TableCell className='font-medium text-center'>Alitas BBQ</TableCell>
-                <TableCell className='font-medium text-center'>16 min</TableCell>
-                <TableCell className='font-medium text-center'>350</TableCell>
-              </TableRow>
+              <DataRow name='Alitas BBQ' time='16 min' temperature= {350}/>
 
-              <TableRow>
-                <TableCell className='font-medium text-center'>Lasaña (Maheso)</TableCell>
-                <TableCell className='font-medium text-center'>12 min</TableCell>
-                <TableCell className='font-medium text-center'>380</TableCell>
-              </TableRow>
+              <DataRow name='Lasaña (maheso)' time='12 min' temperature= {380}/>
 
-              <TableRow>
-                <TableCell className='font-medium text-center'>Lasaña (Plumrose)</TableCell>
-                <TableCell className='font-medium text-center'>20 min</TableCell>
-                <TableCell className='font-medium text-center'>380</TableCell>
-              </TableRow>
+              <DataRow name='Lasaña (Plumrose)' time='20 min' temperature= {380}/>
 
-              <TableRow>
-                <TableCell className='font-medium text-center'>Lasaña (Facundo)</TableCell>
-                <TableCell className='font-medium text-center'>15 min</TableCell>
-                <TableCell className='font-medium text-center'>380</TableCell>
-              </TableRow>
+              <DataRow name='Lasaña (Facundo)' time='15 min' temperature= {380}/>
 
-              <TableRow>
-                <TableCell className='font-medium text-center'>Papas fritas (Plumrose)</TableCell>
-                <TableCell className='font-medium text-center'>17 min</TableCell>
-                <TableCell className='font-medium text-center'>395</TableCell>
-              </TableRow>
+              <DataRow name='Papas fritas (Plumrose)' time='17 min' temperature= {395}/>
 
-              <TableRow>
-                <TableCell className='font-medium text-center'>Papas fritas (Bolsa Azul)</TableCell>
-                <TableCell className='font-medium text-center'>15 min</TableCell>
-                <TableCell className='font-medium text-center'>390</TableCell>
-              </TableRow>
+              <DataRow name='Papas fritas (Bolsa azul)' time='15 min' temperature= {390}/>
 
             </TableBody>
             <TableCaption>Productos de la freidora de aire</TableCaption>
